@@ -291,7 +291,7 @@ and the `console` output should look similar to *Screenshot 3.4*.
 | <a href="images/ide-setup-screenshot-intellij-run-4.png" ><img alt="Login" src="images/ide-setup-screenshot-intellij-run-4.png" width="500"></a> |
 
 
-Next open up your web browser and connect to [https://localhost:8444/idat/addbook](https://localhost:8444/idat/addbook). You will see something similar to *Screenshot 3.5*.
+Next open up your web browser and connect to [https://localhost:8443/app](https://localhost:8443/app). You will see something similar to *Screenshot 3.5*.
 
 | Screenshot 3.5: Open application in browser |
 |--------------|
@@ -304,39 +304,39 @@ Examining the certificate details you will notice that those are the details ent
 | <a href="images/ide-setup-screenshot-intellij-run-6.png" ><img alt="Login" src="images/ide-setup-screenshot-intellij-run-6.png" width="500"></a> |
 
 
-Clicking on `Continue` will lead you to the main site. The request triggers the creation of a new object
-which gets persisted into the IDAT database.
+Clicking on `Continue` will lead you to the login page. 
 
-| Screenshot 3.7: Create new object|
+| Screenshot 3.7: Login Page|
 |--------------|
-| <a href="images/ide-setup-screenshot-intellij-run-7.png" ><img alt="Login" src="images/ide-setup-screenshot-intellij-run-7.png" width="500"></a> |
+| <a href="images/ide-setup-screenshot-login-page.png" ><img alt="Login" src="images/ide-setup-screenshot-login-page.png" width="500"></a> |
 
-You can take a look in the database and verify that the object has been persisted in encrypted form.
 
-| Screenshot 3.8: Database entry |
-|--------------|
-| <a href="images/ide-setup-screenshot-intellij-run-8.png" ><img alt="Login" src="images/ide-setup-screenshot-intellij-run-8.png" width="500"></a> |
-
-Next, go to to [https://localhost:8443/app/](https://localhost:8443/app). Accept the certificate, if necessary. 
+Repeat this step for all modules and accept the certificate, if necessary. This is required because the application requests resources from different servers and the cerificate has to be accepted first.
+- [https://localhost:8443/app/](https://localhost:8443/app)
+- [https://localhost:8444/idat](https://localhost:8444/idat) 
+- [https://localhost:8445/psns](https://localhost:8445/psns) 
+- [https://localhost:8446/vdat](https://localhost:8446/vdat) 
 
 **IMPORTANT:** Notice the different port!
 
-| Screenshot 3.9: APP |
+Once done return to the login page and click on `login` and login using the `username` = *admin* and `password` = *admin*.  This will trigger a login on the APP, IDAT, VDAT and PSNS server (Cross Origin) and redirect you to the main page.
+
+| Screenshot 3.8: Main Page |
 |--------------|
-| <a href="images/ide-setup-screenshot-intellij-run-9.png" ><img alt="Login" src="images/ide-setup-screenshot-intellij-run-9.png" width="500"></a> |
+| <a href="images/ide-setup-screenshot-main-page.png" ><img alt="Login" src="images/ide-setup-screenshot-main-page.png" width="500"></a> |
 
-Click on `login` and login using the `username` = *user* and `password` = *user*.
+You can navigate to *Cases -> New* and create a new case. When finished, the client identification data (Client Profile) will have been saved into IDAT while case relevant data will have been saved into VDAT.
 
-| Screenshot 3.10: Login |
+
+| Screenshot 3.9: Create New Case |
 |--------------|
-| <a href="images/ide-setup-screenshot-intellij-run-10.png" ><img alt="Login" src="images/ide-setup-screenshot-intellij-run-10.png" width="500"></a> |
+| <a href="images/ide-setup-screenshot-new-case-page.png" ><img alt="Login" src="images/ide-setup-screenshot-new-case-page.png" width="500"></a> |
 
-This will trigger a login on the *IDAT* server and fetch the freshly created object (Cross Origin)!
+ou can navigate to *Cases -> Overview*. This will fetch client information from IDAT as well as case data from VDAT.
 
-| Screenshot 3.11: Fetch Object |
+| Screenshot 3.10: Fetch Case |
 |--------------|
-| <a href="images/ide-setup-screenshot-intellij-run-11.png" ><img alt="Login" src="images/ide-setup-screenshot-intellij-run-11.png" width="500"></a> |
-
+| <a href="images/ide-setup-screenshot-cases-overview-page.png" ><img alt="Login" src="images/ide-setup-screenshot-cases-overview-page.png" width="500"></a> |
 
 ### Project Structure
 The Java Projects for each module will be [Gradle](https://gradle.org/) projects and multiple project builds. That is, they will consist of different subprojects. The project structure for a single module (*module-name*) is listed below:
