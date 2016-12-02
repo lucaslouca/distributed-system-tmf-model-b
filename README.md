@@ -1,9 +1,11 @@
+# distributed-system-tmf-model-b
 This sample code is part of the following series of tutorials:
 
 - [Distributed system for maximum security and data privacy – Part 1](https://blog.lucaslouca.com/distributed-system-for-maximum-security-and-data-privacy-part-1/)
 - [Distributed system for maximum security and data privacy – Part 2](https://blog.lucaslouca.com/distributed-system-for-maximum-security-and-data-privacy-part-2/)
 
-##**Table of Contents**
+## IDE Setup and running the application
+### **Table of Contents**
 
 - [1. Required Software](#required-software)
 	- [1.1 Java 1.8 SDK](#java-18-jdk)
