@@ -332,7 +332,7 @@ You can navigate to *Cases -> New* and create a new case. When finished, the cli
 |--------------|
 | <a href="images/ide-setup-screenshot-new-case-page.png" ><img alt="Login" src="images/ide-setup-screenshot-new-case-page.png" width="500"></a> |
 
-ou can navigate to *Cases -> Overview*. This will fetch client information from IDAT as well as case data from VDAT.
+You can navigate to *Cases -> Overview*. This will fetch client information from IDAT as well as case data from VDAT.
 
 | Screenshot 3.10: Fetch Case |
 |--------------|
