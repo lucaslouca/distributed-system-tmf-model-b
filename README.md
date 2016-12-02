@@ -388,3 +388,14 @@ public class User {
 | IDAT | 8081 | 8444 | 1100 |/idat |[https://127.0.0.1:8444/idat](https://127.0.0.1:8444/idat) or [https://localhost:8444/idat](https://localhost:8444/idat)|
 | PSNS | 8082 | 8445 | 1101 |/psns |[https://127.0.0.1:8445/psns](https://127.0.0.1:8445/psns) or [https://localhost:8445/psns](https://localhost:8445/psns)|
 | VDAT | 8083 | 8446 | 1102 |/vdat |[https://127.0.0.1:8446/vdat](https://127.0.0.1:8446/vdat) or [https://localhost:8446/vdat](https://localhost:8446/vdat)|
+
+### Test users
+Below is a list of development users that can be used to test the different functionalities of the system.
+
+|Username| Password | Type | Role | Comment | Sites |
+|-------|-------|-------|-------|-------|-------|
+|admin| admin| PENTESTER | ADMIN| |SiteA, SiteB|
+|puser1| puser1 | PENTESTER | USER| |SiteA, SiteB|
+|puser2| puser2 | PENTESTER | USER| |SiteA, SiteB|
+|ecuser1| ecuser1 | END CLIENT | USER| |SiteA, SiteB|
+|ecuser1| ecuser1 | END CLIENT | USER| |SiteA, SiteB|
