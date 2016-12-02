@@ -18,6 +18,7 @@
 - [10. Project specific conventions](#project-specific-conventions)
 - [11. Important Configuration Properties](#important-configuration-properties)
 - [12. Tomcat Ports](#tomcat-ports)
+- [13. Test Users](#test-users)
 
 ### Required Software
 #### Java 1.8 JDK
