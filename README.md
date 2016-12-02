@@ -1,3 +1,8 @@
+This sample code is part of the following series of tutorials:
+
+- [Distributed system for maximum security and data privacy – Part 1](https://blog.lucaslouca.com/distributed-system-for-maximum-security-and-data-privacy-part-1/)
+- [Distributed system for maximum security and data privacy – Part 2](https://blog.lucaslouca.com/distributed-system-for-maximum-security-and-data-privacy-part-2/)
+
 ##**Table of Contents**
 
 - [1. Required Software](#required-software)
