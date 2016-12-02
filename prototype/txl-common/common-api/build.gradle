@@ -1,0 +1,5 @@
+description = 'common-api'
+dependencies {
+    compile project(':common:common-domain')
+    compile 'org.springframework.security:spring-security-core:4.0.2.RELEASE'
+}

@@ -1,0 +1,22 @@
+description = 'common-service'
+dependencies {
+    compile project(':common:common-api')
+    compile project(':common:common-dao-dummy')
+    compile project(':common:common-dao-hibernate')
+    compile project(':common:common-domain')
+
+
+    compile group: 'org.springframework',           name:'spring-aop',                      version: project.springVersion
+    compile group: 'org.aspectj',                   name:'aspectjrt',                       version: project.aspectjVersion
+    compile group: 'cglib',                         name:'cglib',                           version: project.cglibVersion
+    compile group: 'org.aspectj',                   name:'aspectjweaver',                   version: project.aspectjVersion
+    compile group: 'org.springframework.security',  name: 'spring-security-core',           version: project.springSecurityVersion
+    compile group: 'org.springframework',           name: 'spring-context',                 version: project.springVersion
+    compile group: 'org.springframework',           name: 'spring-test',                    version: project.springVersion
+    compile group: 'org.jasypt',                    name: 'jasypt',                         version: project.jasyptVersion
+    compile group: 'commons-codec',                 name: 'commons-codec',                  version: project.commonsCodecVersion
+    compile group: 'org.apache.commons',            name: 'commons-lang3',                  version: project.commonsLangVersion
+    compile group: 'org.jasypt',                    name: 'jasypt-hibernate4',              version: project.jasyptVersion
+    compile group: 'org.jasypt',                    name: 'jasypt-spring31',                version: project.jasyptVersion
+    compile group: 'org.bitbucket.b_c',             name: 'jose4j',                         version: project.jose4jVersion
+}

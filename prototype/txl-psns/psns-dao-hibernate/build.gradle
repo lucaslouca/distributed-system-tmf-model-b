@@ -1,0 +1,12 @@
+description = 'psns-dao-hibernate'
+dependencies {
+    compile project(':psns:psns-dao')
+    compile project(':psns:psns-domain')
+
+    compile group: 'org.springframework',           name: 'spring-context',                 version: project.springVersion
+    compile group: 'org.springframework',           name: 'spring-orm',                     version: project.springVersion
+    compile group: 'org.springframework',           name: 'spring-test',                    version: project.springVersion
+    compile group: 'org.hibernate',                 name: 'hibernate-core',                 version: project.hibernateVersion
+    compile group: 'org.jasypt',                    name: 'jasypt-hibernate4',              version: project.jasyptVersion
+    compile group: 'mysql',                         name: 'mysql-connector-java',           version: project.mysqlConnectorVersion
+}

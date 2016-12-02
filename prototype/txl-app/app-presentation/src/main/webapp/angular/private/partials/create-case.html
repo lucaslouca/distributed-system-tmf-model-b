@@ -1,0 +1,387 @@
+<legend><i class="fa fa-edit"></i> Create Client Profile & Case</legend>
+
+<div id="wizard" class="form_wizard wizard_horizontal">
+
+    <!-- Create Case Steps List -->
+    <ul class="wizard_steps">
+        <li>
+            <a href="#step-1">
+                <span class="step_no">1</span>
+                <span class="step_descr">
+                    Step 1<br/>
+                    <small>Client Profile</small>
+                </span>
+            </a>
+        </li>
+        <li>
+            <a href="#step-2">
+                <span class="step_no">2</span>
+                <span class="step_descr">
+                    Step 2<br/>
+                    <small>Case Details</small>
+                </span>
+            </a>
+        </li>
+        <li>
+            <a href="#step-3">
+                <span class="step_no">3</span>
+                <span class="step_descr">
+                    Step 3<br/>
+                    <small>Frame Condition</small>
+                </span>
+            </a>
+        </li>
+        <li>
+            <a href="#step-4">
+                <span class="step_no">4</span>
+                <span class="step_descr">
+                    Step 4<br/>
+                    <small>Summary</small>
+                </span>
+            </a>
+        </li>
+    </ul>
+
+
+    <form class="form-horizontal form-label-left">
+
+        <!-- Step 1 -->
+        <div id="step-1">
+
+            <!-- Step 1: Client -->
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Client</h2>
+
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Name: </label>
+
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <select class="select2_single form-control" tabindex="-1" ng-model="clientEID">
+                                <option value="{{client.eid}}" ng-repeat="client in clients">
+                                    {{client.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 1: Existing Client Profile -->
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        <input type="radio" class="flat" name="gender" id="radio-existing-cp" value="M" checked="" required/>
+                        Select existing Client Profile
+                    </h2>
+
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Name: </label>
+
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <select class="select2_single form-control" tabindex="-1" ng-model="existingClientProfilePsn">
+                                <option value="{{clientProfile.psn}}" ng-repeat="clientProfile in clientProfiles">
+                                    {{clientProfile.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 1: New Client Profile -->
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        <input type="radio" class="flat" name="gender" id="radio-new-cp" value="F"/>
+                        Create new Client Profile
+                    </h2>
+
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+                    <!-- Name -->
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Name</label>
+
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <input type="text" class="form-control" placeholder="Name" ng-model="newClientProfile.name">
+                        </div>
+                    </div>
+
+                    <!-- Street Address -->
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Street</label>
+
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <input type="text" class="form-control" placeholder="Street" ng-model="newClientProfile.street">
+                        </div>
+                    </div>
+
+                    <!-- Postal Code -->
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Postal code</label>
+
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <input type="text" class="form-control" placeholder="Postal code" ng-model="newClientProfile.postalCode">
+                        </div>
+                    </div>
+
+                    <!-- Location -->
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Location</label>
+
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <select class="select2_single form-control" tabindex="-1" style="width:200px" ng-model="newClientProfile.location">
+                                <option value="puser3">Canada</option>
+                                <option value="puser4">Germany</option>
+                                <option value="puser2">USA</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <!-- Phone -->
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Phone</label>
+
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <input type="text" class="form-control" placeholder="Phone" ng-model="newClientProfile.phone">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- END OF STEP 1 -->
+
+
+        <!-- Step 2 -->
+        <div id="step-2">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Case</h2>
+
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+                    <!-- Step 2: Case Type -->
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Type: </label>
+
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <select class="select2_single form-control" tabindex="-1" ng-model="newCase.type" style="width:200px">
+                                <option value="{{caseType.value}}" ng-repeat="caseType in caseTypesOptions">
+                                    {{caseType.label}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Case Type -->
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Assign to: </label>
+
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <select class="select2_single form-control" tabindex="-1" style="width:200px">
+                                <option value="puser1">puser1</option>
+                                <option value="puser2">puser2</option>
+                                <option value="puser3">puser3</option>
+                                <option value="puser4">puser4</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!-- END OF STEP 2 -->
+
+
+        <div id="step-3">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        General
+                    </h2>
+
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+
+                    <!-- Step 3: Test environment -->
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Test environment: </label>
+
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <select class="select2_single form-control" tabindex="-1" style="width:200px">
+                                <option value="{{testEnvironment.value}}" ng-repeat="testEnvironment in testEnvironmentOptions">
+                                    {{testEnvironment.label}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Target network -->
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Target network: </label>
+
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <select class="select2_single form-control" tabindex="-1" style="width:200px">
+                                <option value="Internet">Internet</option>
+                                <option value="Intranet">Intranet</option>
+                                <option value="VPN">VPN</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Testing method -->
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Testing method: </label>
+
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <select class="select2_single form-control" tabindex="-1" style="width:200px">
+                                <option value="Black-box">Black-box</option>
+                                <option value="White-box">White-box</option>
+                                <option value="Grey-Box">Grey-Box</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <!-- Step 3: Test objective -->
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Test objective: </label>
+
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <select class="select2_single form-control" tabindex="-1" style="width:200px">
+                                <option value="OWASP">OWASP</option>
+                                <option value="Denial-of-Service">Denial-of-Service</option>
+                                <option value="Load Test">Load Test</option>
+                                <option value="Information Gathering">Information Gathering</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <!-- Step 3: Classification -->
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Classification: </label>
+
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <select class="select2_single form-control" tabindex="-1" style="width:200px">
+                                <option value="Confidential">Confidential</option>
+                                <option value="Internal">Internal use</option>
+                                <option value="Public">Public</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Approach -->
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Approach: </label>
+
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <select class="select2_single form-control" tabindex="-1" style="width:200px">
+                                <option value="Manual">Manual</option>
+                                <option value="Automated">Automated</option>
+                                <option value="Combination">Combination</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        Application Details
+                    </h2>
+
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+
+
+                </div>
+            </div>
+
+        </div>
+        <div id="step-4">
+            <h2 class="StepTitle">Summary</h2>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex
+                ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                mollit
+                anim id est laborum.
+            </p>
+        </div>
+    </form>
+</div>
+<!-- End SmartWizard Content -->
+
+
+<!-- form wizard -->
+<script type="text/javascript" src="js/wizard/jquery.smartWizard.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Smart Wizard
+        $('#wizard').smartWizard({onFinish: onFinishCallback});
+
+        function onFinishCallback() {
+            $('#wizard').smartWizard('showMessage', 'Finish Clicked');
+            angular.element(document.getElementById('wizard')).scope().createCase();
+        }
+    });
+</script>
+
+
+<!-- Radio Buttons -->
+<script src="js/icheck/icheck.min.js"></script>
+<script>
+    if ($("input.flat")[0]) {
+        $(document).ready(function () {
+            $('input.flat').iCheck({
+                checkboxClass: 'icheckbox_flat-green',
+                radioClass: 'iradio_flat-green'
+            });
+        });
+    }
+</script>
+
+<!-- select2 -->
+<script src="js/select/select2.full.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".select2_single").select2({
+            placeholder: "Select a state",
+            allowClear: true
+        });
+        $(".select2_group").select2({});
+        $(".select2_multiple").select2({
+            maximumSelectionLength: 4,
+            placeholder: "With Max Selection limit 4",
+            allowClear: true
+        });
+    });
+</script>

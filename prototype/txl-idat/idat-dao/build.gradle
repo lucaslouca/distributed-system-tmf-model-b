@@ -1,0 +1,6 @@
+description = 'idat-dao'
+dependencies {
+    compile project(':idat:idat-domain')
+
+    compile group: 'org.springframework.security',  name: 'spring-security-core',           version: project.springSecurityVersion
+}

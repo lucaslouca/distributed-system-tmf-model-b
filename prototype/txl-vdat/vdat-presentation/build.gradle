@@ -1,0 +1,35 @@
+description = 'vdat-presentation'
+dependencies {
+    compile project(':vdat:vdat-api')
+    compile project(':vdat:vdat-domain')
+    compile project(':vdat:vdat-service')
+    compile project(':common:common-presentation')
+
+    compile group: 'org.springframework.security',  name: 'spring-security-core',           version: project.springSecurityVersion
+    compile group: 'org.springframework.security',  name: 'spring-security-web',            version: project.springSecurityVersion
+    compile group: 'org.springframework.security',  name: 'spring-security-config',         version: project.springSecurityVersion
+    compile group: 'org.springframework.security',  name: 'spring-security-taglibs',        version: project.springSecurityVersion
+    compile group: 'org.springframework',           name: 'spring-context',                 version: project.springVersion
+    compile group: 'org.springframework',           name: 'spring-web',                     version: project.springVersion
+    compile group: 'org.springframework',           name: 'spring-webmvc',                  version: project.springVersion
+    compile group: 'org.springframework',           name: 'spring-tx',                      version: project.springVersion
+    compile group: 'com.fasterxml.jackson.core',    name: 'jackson-databind',               version: project.jacksonVersion
+    compile group: 'com.fasterxml.jackson.core',    name: 'jackson-core',                   version: project.jacksonVersion
+    compile group: 'com.fasterxml.jackson.core',    name: 'jackson-annotations',            version: project.jacksonVersion
+    compile group: 'org.codehaus.jackson',          name: 'jackson-mapper-asl',             version: project.jacksonMapperAslVersion
+    compile group: 'commons-codec',                 name: 'commons-codec',                  version: project.commonsCodecVersion
+    compile group: 'org.apache.commons',            name: 'commons-lang3',                  version: project.commonsLangVersion
+    compile group: 'org.jasypt',                    name: 'jasypt-hibernate4',              version: project.jasyptVersion
+    compile group: 'org.jasypt',                    name: 'jasypt-spring31',                version: project.jasyptVersion
+    compile group: 'org.jasypt',                    name: 'jasypt',                         version: project.jasyptVersion
+    compile group: 'org.webjars',                   name: 'angularjs',                      version: project.angularJSVersion
+    compile group: 'org.webjars',                   name: 'jquery',                         version: project.jqueryVersion
+    compile group: 'org.webjars',                   name: 'bootstrap',                      version: project.bootstrapVersion
+    compile group: 'org.webjars',                   name: 'webjars-locator',                version: project.webJarsLocatorVersion
+    compile group: 'jstl',                          name: 'jstl',                           version: project.jstlVersion
+    providedCompile group: 'javax.servlet',         name: 'javax.servlet-api',              version:project.servletApiVersion
+}
+
+war {
+    archiveName = 'vdat.war'
+}

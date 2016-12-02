@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="show_sql">true</property>
+        <property name="hbm2ddl.auto">create-drop</property>
+        <mapping class="com.txlidat.domain.TXLClientProfile"></mapping>
+        <mapping class="com.txlidat.domain.TXLClient"></mapping>
+        <mapping class="com.txlcommon.domain.psn.TXLPsn"></mapping>
+        <mapping class="com.txlcommon.domain.site.TXLSite"></mapping>
+        <mapping class="com.txlcommon.domain.user.TXLUser"></mapping>
+        <mapping class="com.txlcommon.domain.user.TXLUserRole"></mapping>
+    </session-factory>
+
+</hibernate-configuration>

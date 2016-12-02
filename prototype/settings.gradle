@@ -1,0 +1,100 @@
+rootProject.name = 'prototype'
+
+// APP
+include ':app'
+include ':app:app-api'
+include ':app:app-service'
+include ':app:app-presentation'
+include ':app:app-domain'
+include ':app:app-dao'
+include ':app:app-dao-dummy'
+include ':app:app-dao-hibernate'
+
+project(':app').projectDir = "$rootDir/txl-app" as File
+project(':app:app-api').projectDir = "$rootDir/txl-app/app-api" as File
+project(':app:app-service').projectDir = "$rootDir/txl-app/app-service" as File
+project(':app:app-presentation').projectDir = "$rootDir/txl-app/app-presentation" as File
+project(':app:app-domain').projectDir = "$rootDir/txl-app/app-domain" as File
+project(':app:app-dao').projectDir = "$rootDir/txl-app/app-dao" as File
+project(':app:app-dao-hibernate').projectDir = "$rootDir/txl-app/app-dao-hibernate" as File
+project(':app:app-dao-dummy').projectDir = "$rootDir/txl-app/app-dao-dummy" as File
+
+
+// IDAT
+include ':idat'
+include ':idat:idat-api'
+include ':idat:idat-service'
+include ':idat:idat-presentation'
+include ':idat:idat-domain'
+include ':idat:idat-dao'
+include ':idat:idat-dao-dummy'
+include ':idat:idat-dao-hibernate'
+
+project(':idat').projectDir = "$rootDir/txl-idat" as File
+project(':idat:idat-api').projectDir = "$rootDir/txl-idat/idat-api" as File
+project(':idat:idat-service').projectDir = "$rootDir/txl-idat/idat-service" as File
+project(':idat:idat-presentation').projectDir = "$rootDir/txl-idat/idat-presentation" as File
+project(':idat:idat-domain').projectDir = "$rootDir/txl-idat/idat-domain" as File
+project(':idat:idat-dao').projectDir = "$rootDir/txl-idat/idat-dao" as File
+project(':idat:idat-dao-hibernate').projectDir = "$rootDir/txl-idat/idat-dao-hibernate" as File
+project(':idat:idat-dao-dummy').projectDir = "$rootDir/txl-idat/idat-dao-dummy" as File
+
+
+// PSNS
+include ':psns'
+include ':psns:psns-api'
+include ':psns:psns-service'
+include ':psns:psns-presentation'
+include ':psns:psns-domain'
+include ':psns:psns-dao'
+include ':psns:psns-dao-dummy'
+include ':psns:psns-dao-hibernate'
+
+project(':psns').projectDir = "$rootDir/txl-psns" as File
+project(':psns:psns-api').projectDir = "$rootDir/txl-psns/psns-api" as File
+project(':psns:psns-service').projectDir = "$rootDir/txl-psns/psns-service" as File
+project(':psns:psns-presentation').projectDir = "$rootDir/txl-psns/psns-presentation" as File
+project(':psns:psns-domain').projectDir = "$rootDir/txl-psns/psns-domain" as File
+project(':psns:psns-dao').projectDir = "$rootDir/txl-psns/psns-dao" as File
+project(':psns:psns-dao-hibernate').projectDir = "$rootDir/txl-psns/psns-dao-hibernate" as File
+project(':psns:psns-dao-dummy').projectDir = "$rootDir/txl-psns/psns-dao-dummy" as File
+
+
+// VDAT
+include ':vdat'
+include ':vdat:vdat-api'
+include ':vdat:vdat-service'
+include ':vdat:vdat-presentation'
+include ':vdat:vdat-domain'
+include ':vdat:vdat-dao'
+include ':vdat:vdat-dao-dummy'
+include ':vdat:vdat-dao-hibernate'
+
+project(':vdat').projectDir = "$rootDir/txl-vdat" as File
+project(':vdat:vdat-api').projectDir = "$rootDir/txl-vdat/vdat-api" as File
+project(':vdat:vdat-service').projectDir = "$rootDir/txl-vdat/vdat-service" as File
+project(':vdat:vdat-presentation').projectDir = "$rootDir/txl-vdat/vdat-presentation" as File
+project(':vdat:vdat-domain').projectDir = "$rootDir/txl-vdat/vdat-domain" as File
+project(':vdat:vdat-dao').projectDir = "$rootDir/txl-vdat/vdat-dao" as File
+project(':vdat:vdat-dao-hibernate').projectDir = "$rootDir/txl-vdat/vdat-dao-hibernate" as File
+project(':vdat:vdat-dao-dummy').projectDir = "$rootDir/txl-vdat/vdat-dao-dummy" as File
+
+
+// COMMON
+include ':common'
+include ':common:common-api'
+include ':common:common-service'
+include ':common:common-presentation'
+include ':common:common-domain'
+include ':common:common-dao'
+include ':common:common-dao-dummy'
+include ':common:common-dao-hibernate'
+
+project(':common').projectDir = "$rootDir/txl-common" as File
+project(':common:common-api').projectDir = "$rootDir/txl-common/common-api" as File
+project(':common:common-service').projectDir = "$rootDir/txl-common/common-service" as File
+project(':common:common-presentation').projectDir = "$rootDir/txl-common/common-presentation" as File
+project(':common:common-domain').projectDir = "$rootDir/txl-common/common-domain" as File
+project(':common:common-dao').projectDir = "$rootDir/txl-common/common-dao" as File
+project(':common:common-dao-hibernate').projectDir = "$rootDir/txl-common/common-dao-hibernate" as File
+project(':common:common-dao-dummy').projectDir = "$rootDir/txl-common/common-dao-dummy" as File

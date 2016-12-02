@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	        http://www.springframework.org/schema/context
+	        http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	        http://www.springframework.org/schema/mvc
+	        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- Tell Spring to scan packages com.txlcommon/** for annotation (@Controller, etc) -->
+    <context:component-scan base-package="com.txlcommon"/>
+    <aop:aspectj-autoproxy />
+
+    <!-- Message Converters for JSON <==> Java POJO -->
+    <bean id="jacksonMessageConverter"
+          class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <property name="objectMapper" ref="jacksonObjectMapper"/>
+        <property name="supportedMediaTypes">
+            <list>
+                <bean class="org.springframework.http.MediaType">
+                    <constructor-arg index="0" value="application"/>
+                    <constructor-arg index="1" value="json"/>
+                    <constructor-arg index="2" value="UTF-8"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+    <bean id="jacksonObjectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"/>
+
+    <mvc:annotation-driven>
+        <mvc:message-converters register-defaults="false">
+            <ref bean="jacksonMessageConverter"></ref>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+    <!-- Make /** resources public -->
+    <mvc:resources mapping="/**" location="/public"/>
+
+    <!-- View resolver for .jsp pages (will be removed later) -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <import resource="spring-common-daos.xml"/>
+    <import resource="spring-common-services.xml"/>
+    <import resource="spring-common-controllers.xml"/>
+    <import resource="spring-common-initusers.xml"/>
+
+    <import resource="spring-initidat.xml"/>
+    <import resource="spring-security.xml"/>
+    <import resource="spring-persist.xml"/>
+    <import resource="spring-daos.xml"/>
+    <import resource="spring-services.xml"/>
+    <import resource="spring-controllers.xml"/>
+
+</beans>

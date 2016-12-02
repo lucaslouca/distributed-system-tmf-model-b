@@ -1,0 +1,9 @@
+description = 'app-domain'
+dependencies {
+    compile group: 'mysql',                         name: 'mysql-connector-java',           version: project.mysqlConnectorVersion
+    compile group: 'org.hibernate',                 name: 'hibernate-entitymanager',        version: project.hibernateVersion
+    compile group: 'org.springframework.security',  name: 'spring-security-core',           version: project.springSecurityVersion
+    compile group: 'com.fasterxml.jackson.core',    name: 'jackson-databind',               version: project.jacksonVersion
+    compile group: 'com.fasterxml.jackson.core',    name: 'jackson-core',                   version: project.jacksonVersion
+    compile group: 'com.fasterxml.jackson.core',    name: 'jackson-annotations',            version: project.jacksonVersion
+}

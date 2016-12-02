@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:tx="http://www.springframework.org/schema/tx" xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	                    http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+	                    http://www.springframework.org/schema/tx
+	                    http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
+
+    <!--                                                                      	-->
+    <!-- Configuration for encryptor, based on environment variables.           -->
+    <!--                                                                        -->
+    <!-- The encryption password will be read from an                           -->
+    <!-- environment variable called "PASSWORD_ENV_VARIABLE" which, once        -->
+    <!-- the application has been started, could be safely unset.               -->
+    <!--                                                                    -->
+    <bean id="environmentVariablesConfiguration" class="org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig">
+        <property name="algorithm" value="PBEWITHMD5ANDDES"/>
+        <property name="passwordEnvName" value="PASSWORD_ENV_VARIABLE"/>
+    </bean>
+
+    <!--                                                                      	-->
+    <!-- The will be the encryptor used for decrypting configuration values.    -->
+    <!--                                                                        -->
+    <bean id="configurationEncryptor" class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor" lazy-init="false">
+        <property name="config" ref="environmentVariablesConfiguration"/>
+    </bean>
+
+    <!--                                                                      	-->
+    <!-- The EncryptablePropertyPlaceholderConfigurer will read the             -->
+    <!-- .properties files and make their values accessible as ${var}.          -->
+    <!--                                                                        -->
+    <!-- Our "configurationEncryptor" bean (which implements                    -->
+    <!-- org.jasypt.encryption.StringEncryptor) is set as a constructor arg.    -->
+    <!--                                                                        -->
+    <bean class="org.jasypt.spring31.properties.EncryptablePropertyPlaceholderConfigurer">
+        <constructor-arg ref="configurationEncryptor"/>
+        <property name="locations">
+            <list>
+                <value>classpath:db.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!--                                                                      	-->
+    <!-- 			        Configure Hibernate using Spring   					-->
+    <!--                                                                      	-->
+    <bean id="hibernateDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${db.driverClassName}"/>
+        <property name="url" value="${db.url}"/>
+        <property name="username" value="${db.username}"/>
+        <property name="password" value="${db.password}"/>
+    </bean>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="hibernateDataSource"/>
+        <property name="mappingResources">
+            <list>
+                <value>jasyptHibernateTypes.hbm.xml</value>
+            </list>
+        </property>
+        <property name="configLocation">
+            <value>classpath:hibernate.cfg.xml</value>
+        </property>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <!--                                                                      	-->
+    <!-- 						     Hibernate/Jasypt    						-->
+    <!--                                                                      	-->
+    <bean id="dbEncryptor" class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor">
+        <property name="algorithm" value="PBEWithMD5AndDES"/>
+        <property name="password" value="${db.encryptionPassword}"/>
+    </bean>
+
+    <bean id="hibernateEncryptor" class="org.jasypt.hibernate4.encryptor.HibernatePBEStringEncryptor"
+          lazy-init="false">
+        <!-- This property value must match "encryptorRegisteredName" used when defining hibernate user types -->
+        <property name="registeredName" value="jasyptHibernateEncryptor"/>
+        <property name="encryptor" ref="dbEncryptor"/>
+    </bean>
+</beans>

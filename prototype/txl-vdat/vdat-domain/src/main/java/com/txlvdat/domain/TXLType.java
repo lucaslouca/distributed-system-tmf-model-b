@@ -1,0 +1,8 @@
+package com.txlvdat.domain;
+
+/**
+ * Created by lucas on 08/11/15.
+ */
+public enum TXLType {
+    CASE_TYPE, CASE_TARGET_NETWORK, CASE_TEST_ENVIRONMENT, CASE_TESTING_METHOD, CASE_TEST_OBJECTIVE, CASE_CLASSIFICATION, CASE_APPROACH
+}

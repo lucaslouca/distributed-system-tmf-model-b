@@ -1,0 +1,8 @@
+description = 'app-dao-dummy'
+dependencies {
+    compile project(':app:app-dao')
+    compile project(':app:app-domain')
+
+    compile group: 'org.springframework',           name: 'spring-context',                 version: project.springVersion
+    compile group: 'org.springframework.security',  name: 'spring-security-core',           version: project.springSecurityVersion
+}

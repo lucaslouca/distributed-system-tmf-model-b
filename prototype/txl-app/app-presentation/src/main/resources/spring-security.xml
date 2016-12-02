@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+
+    <!--                                                                      	-->
+    <!-- 				Secure methods with Java configuration:					-->
+    <!--                @PreAuthorize("hasRole('ROLE_USER')")					-->
+    <!--                                                                      	-->
+    <global-method-security pre-post-annotations="enabled"/>
+
+    <!--                                                                      	-->
+    <!-- 				Authentication Token Filter for our REST API			-->
+    <!--                                                                      	-->
+    <beans:bean id="authenticationTokenProcessingFilterRest"
+                class="com.txlcommon.presentation.security.filter.TXLAuthenticationTokenProcessingFilter">
+        <beans:constructor-arg value="/rest/**"/>
+        <beans:property name="userService" ref="userService"/>
+        <beans:property name="tokenService" ref="tokenService"/>
+    </beans:bean>
+
+    <!--                                                                      	-->
+    <!-- 				Authentication Token Filter for our Views			-->
+    <!--                                                                      	-->
+    <beans:bean id="authenticationTokenProcessingFilterViews"
+                class="com.txlcommon.presentation.security.filter.TXLAuthenticationTokenProcessingFilter">
+        <beans:constructor-arg value="/angular/private/**"/>
+        <beans:property name="userService" ref="userService"/>
+        <beans:property name="tokenService" ref="tokenService"/>
+    </beans:bean>
+
+    <beans:bean id="authenticationEntryPoint" class="com.txlcommon.presentation.security.entrypoint.TXLAuthenticationEntryPoint"/>
+
+    <http pattern="/angular/private/**" auto-config="false" use-expressions="true" create-session="stateless"
+          disable-url-rewriting="true" entry-point-ref="authenticationEntryPoint">
+
+        <intercept-url pattern="/angular/private/**" access="isAuthenticated()"/>
+
+        <custom-filter ref="authenticationTokenProcessingFilterViews" position="FORM_LOGIN_FILTER"/>
+
+        <csrf disabled="true"/>
+    </http>
+
+
+    <http auto-config="false" use-expressions="true" create-session="stateless"
+          disable-url-rewriting="true" entry-point-ref="authenticationEntryPoint">
+
+        <intercept-url pattern="/book" access="permitAll()"/>
+
+        <!--  Rest Login -->
+        <intercept-url pattern="/services/authenticate" access="permitAll()"/>
+
+        <!--  REST and Token Authentication -->
+        <intercept-url pattern="/rest/**" access="isAuthenticated()"/>
+
+        <custom-filter ref="authenticationTokenProcessingFilterRest" position="FORM_LOGIN_FILTER"/>
+
+        <!--  Disabled because we are using our own Token Authentication (with expiration time, etc) -->
+        <csrf disabled="true"/>
+    </http>
+
+    <!--                                                                      	-->
+    <!-- 						User Password encoder 							-->
+    <!--  The default strength is 10. You can change this value in the deployed -->
+    <!--  system without affecting existing passwords, as the value is also     -->
+    <!--  stored in the encoded hash.                                           -->
+    <!--                                                                      	-->
+    <beans:bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+
+    <!--                                                                      	-->
+    <!-- 				Select users and user_roles from database 				-->
+    <!--            Tell the authentication-manager that we are using           -->
+    <!--            BCryptPasswordEncoder when hashing passwords.               -->
+    <!--                                                                      	-->
+    <authentication-manager id="authenticationManager" alias="authenticationManager">
+        <authentication-provider user-service-ref="userService">
+            <password-encoder ref="passwordEncoder"/>
+        </authentication-provider>
+    </authentication-manager>
+
+</beans:beans>

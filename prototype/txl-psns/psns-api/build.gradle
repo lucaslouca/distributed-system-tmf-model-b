@@ -1,0 +1,6 @@
+description = ':psns-api'
+dependencies {
+    compile project(':psns:psns-domain')
+
+    compile group: 'org.springframework.security',  name: 'spring-security-core',           version: project.springSecurityVersion
+}

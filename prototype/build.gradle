@@ -1,0 +1,58 @@
+group 'trixlcode'
+version '1.0'
+
+buildscript {
+    repositories {
+        mavenLocal()
+        maven { url "http://repo.maven.apache.org/maven2" }
+    }
+
+    dependencies {
+        classpath "org.gradle.api.plugins:gradle-tomcat-plugin:0.9.9",
+                "org.gradle.api.plugins:gradle-cargo-plugin:0.6.1"
+    }
+}
+
+allprojects {
+    apply plugin: 'maven'
+    apply plugin: 'eclipse'
+    apply plugin: 'eclipse-wtp'
+    apply plugin: 'idea'
+    version = '1.0'
+}
+
+subprojects {
+    apply plugin: 'java'
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+
+
+    repositories {
+        mavenLocal()
+        maven { url "http://repo.maven.apache.org/maven2" }
+    }
+
+    dependencies {
+        compile group: 'junit', name: 'junit', version: '4.11'
+    }
+}
+
+project.ext.set("springVersion", '4.1.1.RELEASE')
+project.ext.set("springSecurityVersion", '4.0.2.RELEASE')
+project.ext.set("jacksonVersion", '2.6.0')
+project.ext.set("jacksonMapperAslVersion", '1.9.13')
+project.ext.set("jasyptVersion", '1.9.2')
+project.ext.set("commonsCodecVersion", '1.10')
+project.ext.set("commonsLangVersion", '3.4')
+project.ext.set("webJarsLocatorVersion", '0.27')
+project.ext.set("angularJSVersion", '1.4.3')
+project.ext.set("jqueryVersion", '3.0.0-alpha1')
+project.ext.set("bootstrapVersion", '3.3.5')
+project.ext.set("mysqlConnectorVersion", '5.1.26')
+project.ext.set("hibernateVersion", '4.2.2.Final')
+project.ext.set("jstlVersion", '1.2')
+project.ext.set("servletApiVersion", '3.0.1')
+project.ext.set("aspectjVersion", '1.8.6')
+project.ext.set("cglibVersion", '3.1')
+project.ext.set("jose4jVersion", '0.4.4')
+project.ext.set("modelMapperVersion", '0.7.4')

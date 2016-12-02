@@ -1,0 +1,6 @@
+description = 'app-api'
+dependencies {
+    compile project(':app:app-domain')
+
+    compile group: 'org.springframework.security',  name: 'spring-security-core',           version: project.springSecurityVersion
+}

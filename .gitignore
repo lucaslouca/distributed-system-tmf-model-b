@@ -1,4 +1,17 @@
+META-INF/
 *.class
+.project
+.classpath
+.gitignore
+.settings/
+.springBeans
+.gradle/
+gradlew.bat
+gradlew
+.idea/
+bin/
+build/
+gradle/
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
@@ -10,3 +23,19 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+#IDEA
+*.iml
+*.ipr
+*.iws
+
+
+# Prototype Tests
+## JS markdown editor - build directories
+prototype/js-markdown-editor/localtesting/*
+prototype/js-markdown-editor/node_modules/*
+prototype/js-markdown-editor/bower_components/*
+### But the following files have been ajusted, therefore we'll keep track
+!prototype/js-markdown-editor/node_modules/codemirror/mode/markdown/markdown.js
+!prototype/js-markdown-editor/node_modules/codemirror-spell-checker/src/js/spell-checker.js
+!prototype/js-markdown-editor/node_modules/marked/lib/marked.js

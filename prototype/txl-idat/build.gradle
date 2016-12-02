@@ -1,0 +1,16 @@
+project(':idat:idat-presentation') {
+    apply plugin: 'war'
+    apply plugin: 'tomcat'
+}
+
+allprojects {
+    dependencies {
+        compile project(':common:common-api')
+        compile project(':common:common-dao')
+        compile project(':common:common-dao-dummy')
+        compile project(':common:common-dao-hibernate')
+        compile project(':common:common-domain')
+        compile project(':common:common-service')
+        compile project(':common:common-presentation')
+    }
+}

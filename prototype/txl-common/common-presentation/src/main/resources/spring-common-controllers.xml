@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+	        http://www.springframework.org/schema/beans    
+	        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+    <bean id="authenticationController" class="com.txlcommon.presentation.security.controller.TXLAuthenticationController">
+        <property name="userService" ref="userService"/>
+        <property name="tokenService" ref="tokenService"/>
+        <property name="authenticationManager" ref="authenticationManager"/>
+    </bean>
+
+</beans>

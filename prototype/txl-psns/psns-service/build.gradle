@@ -1,0 +1,16 @@
+description = 'psns-service'
+dependencies {
+    compile project(':psns:psns-api')
+    compile project(':psns:psns-dao-dummy')
+    compile project(':psns:psns-dao-hibernate')
+    compile project(':psns:psns-domain')
+
+    compile group: 'org.springframework.security',  name: 'spring-security-core',           version: project.springSecurityVersion
+    compile group: 'org.springframework',           name: 'spring-context',                 version: project.springVersion
+    compile group: 'org.springframework',           name: 'spring-test',                    version: project.springVersion
+    compile group: 'org.jasypt',                    name: 'jasypt',                         version: project.jasyptVersion
+    compile group: 'commons-codec',                 name: 'commons-codec',                  version: project.commonsCodecVersion
+    compile group: 'org.apache.commons',            name: 'commons-lang3',                  version: project.commonsLangVersion
+    compile group: 'org.jasypt',                    name: 'jasypt-hibernate4',              version: project.jasyptVersion
+    compile group: 'org.jasypt',                    name: 'jasypt-spring31',                version: project.jasyptVersion
+}
