@@ -149,7 +149,7 @@ Start IntelliJ IDEA. A window will appear with options. Select `Import Project`.
 
 Browse to the module directory and select the root directory `prototype`. 
 
-**IMPORTANT:** not the repository directory! If you repository is called *prototype*, then you should select *prototype/prototype*.
+**IMPORTANT:** not the repository directory! If you repository is called *distributed-system-tmf-model-b*, then you should select *distributed-system-tmf-model-b/prototype*.
 
 | Screenshot 1.2: Select Project |
 |--------------|
