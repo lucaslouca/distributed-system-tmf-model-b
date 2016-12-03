@@ -52,6 +52,7 @@ $http.post(host + "/services/authenticate", credentials).success(function (user,
     console.log("Authentication failed for username '"+credentials.username+"'");
 });
 ```
+### APP
 ### IDAT
 #### POST Fetch EID for user
 Get EID(PSN1) for user.
