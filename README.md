@@ -8,8 +8,8 @@ The architecture is based on Model B of the generic concept of the TMF (Technolo
 In order to ensure the End Client's privacy, Identification Data (**IDAT**) and Findings Data (**VDAT**) will be stored encrypted on separate servers associated with the help of a Trusted Third Party (TTP), which we call Pseudonymization Service (**PSNS**). This design concept has the benefit that all three servers (IDAT, PSNS and VDAT) have to be compromised in order to trace any found vulnerabilities back to the end client. In addtion to IDAT, PSNS and VDAT we will also have a fourth server called **APP** that will handle application data and the GUI. APP, IDAT, PSNS and VDAT will be referred as **modules** from now on.
 
 For a more in depth description of the architecture please read: 
-- [Distributed system for maximum security and data privacy – Part 1](https://blog.lucaslouca.com/distributed-system-for-maximum-security-and-data-privacy-part-1/)
-- [Distributed system for maximum security and data privacy – Part 2](https://blog.lucaslouca.com/distributed-system-for-maximum-security-and-data-privacy-part-2/)
+- [Distributed system for data security and privacy – Part 1](https://blog.lucaslouca.com/distributed-system-for-data-security-and-privacy-part-1/)
+- [Distributed system for data security and privacy – Part 2](https://blog.lucaslouca.com/distributed-system-for-data-security-and-privacy-part-2/)
 
 ## IDE Setup and running the application
 ### **Table of Contents**
